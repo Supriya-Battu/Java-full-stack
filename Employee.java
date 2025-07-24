@@ -45,6 +45,10 @@ public class Employee {
 
         System.out.println("Net Salary : " + netSalary);
     }
+    static void Rules()
+    {
+        System.out.println("Monday to Thursday wear causuals and on Friday,Saturday wear comfortable dress");
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -70,6 +74,7 @@ public class Employee {
 
         Employee bc = new Employee(a, b, c, d, e);
         bc.getEmployeeDetails();
+        bc.Rules();
 
     }
 }
