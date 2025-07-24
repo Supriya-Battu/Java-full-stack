@@ -74,7 +74,7 @@ public class Employee {
 
         Employee bc = new Employee(a, b, c, d, e);
         bc.getEmployeeDetails();
-        bc.Rules();
+        Rules();
 
     }
 }
