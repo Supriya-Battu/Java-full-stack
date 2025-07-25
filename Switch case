@@ -2,7 +2,7 @@ package info;
 
 import java.util.Scanner;
 
-public class StudentPortal {
+public class Switchcase {
     // Fields
     int rollno;
     int[] marks;
@@ -11,7 +11,7 @@ public class StudentPortal {
     static int sum = 0;
 
     // Constructor
-    StudentPortal(int rollno, String name, int[] marks) {
+    Switchcase(int rollno, String name, int[] marks) {
         this.rollno = rollno;
         this.name = name;
         this.marks = marks;
@@ -90,7 +90,7 @@ public class StudentPortal {
         }
 
         // Create object and call methods
-        StudentPortal stu= new StudentPortal(roll, name, marks);
+        Switchcase stu= new Switchcase(roll, name, marks);
         stu.getDetails();
         stu.calculateAndPrintResult();
     }
