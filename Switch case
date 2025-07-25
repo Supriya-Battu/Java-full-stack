@@ -1,0 +1,97 @@
+package info;
+
+import java.util.Scanner;
+
+public class StudentPortal {
+    // Fields
+    int rollno;
+    int[] marks;
+    String name;
+    float percentage;
+    static int sum = 0;
+
+    // Constructor
+    StudentPortal(int rollno, String name, int[] marks) {
+        this.rollno = rollno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    // Method to display student details
+    void getDetails() {
+        System.out.println("\n--- Student Details ---");
+        System.out.println("Roll Number: " + rollno);
+        System.out.println("Name       : " + name);
+        System.out.println("Marks in each subject:");
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println("Subject " + (i + 1) + ": " + marks[i]);
+        }
+    }
+
+    // Method to calculate percentage and assign grade using switch-case
+    void calculateAndPrintResult() {
+        for (int i = 0; i < marks.length; i++) {
+            sum += marks[i];
+        }
+
+        percentage = (float) sum / marks.length;
+
+        System.out.println("Total Marks : " + sum);
+        System.out.println("Percentage  : " + percentage + "%");
+
+        String grade;
+
+        // Assign grade based on percentage
+        if (percentage >= 80) {
+            grade = "A";
+        } else if (percentage >= 70) {
+            grade = "B";
+        } else if (percentage >= 60) {
+            grade = "C";
+        } else {
+            grade = "D";
+        }
+
+        // Switch case for grade
+        switch (grade) {
+            case "A":
+                System.out.println("A");
+                break;
+            case "B":
+                System.out.println("B");
+                break;
+            case "C":
+                System.out.println("C");
+                break;
+            case "D":
+                System.out.println("D");
+                System.out.println("Please improve your marks.");
+                break;
+            default:
+                System.out.println("Invalid grade.");
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner v = new Scanner(System.in);
+
+        System.out.println("Welcome to RISE CLG!!!");
+        System.out.print("Please enter your Roll Number: ");
+        int roll = v.nextInt();
+
+        System.out.print("Please enter your Name: ");
+        String name = v.next();
+
+        int[] marks = new int[6]; // array to store 6 subject marks
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Enter Subject " + (i + 1) + " Marks: ");
+            marks[i] = v.nextInt();
+        }
+
+        // Create object and call methods
+        StudentPortal stu= new StudentPortal(roll, name, marks);
+        stu.getDetails();
+        stu.calculateAndPrintResult();
+    }
+}
