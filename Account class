@@ -1,0 +1,44 @@
+package inheritance;
+import java.util.Scanner;
+
+public class Account {
+    // Fields
+    long accountNumber;
+    String ifscCode;
+    double balance;
+
+    // Method to set account details
+    void setDetails(long accNo, String ifsc, double bal) {
+        accountNumber = accNo;
+        ifscCode = ifsc;
+        balance = bal;
+    }
+
+    // Method to display account details
+    void showDetails() {
+        System.out.println("\n--- Account Details ---");
+        System.out.println("Account Number : " + accountNumber);
+        System.out.println("IFSC Code      : " + ifscCode);
+        System.out.println("Balance        : ₹" + balance);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Account acc = new Account();
+
+        // Get input from user
+        System.out.print("Enter Account Number: ");
+        long accNo = sc.nextLong();
+
+        System.out.print("Enter IFSC Code: ");
+        String ifsc = sc.next();
+
+        System.out.print("Enter Balance: ");
+        double bal = sc.nextDouble();
+
+        // Set and display details
+        acc.setDetails(accNo, ifsc, bal);
+        acc.showDetails();
+    }
+}
