@@ -1,0 +1,36 @@
+
+package inheritance;
+// Account → Customer → Loan (Multilevel)
+
+public class Loan extends Customer {
+    int loanId;
+    double loanAmount;
+    String loanType;
+
+    Loan(int accNo, String ifsc, double balance,
+         int custId, String name, String address,
+         int loanId, double loanAmount, String loanType) {
+
+        super(accNo, ifsc, balance, custId, name, address);
+        this.loanId = loanId;
+        this.loanAmount = loanAmount;
+        this.loanType = loanType;
+    }
+
+    void showLoanDetails() {
+        System.out.println("--- Loan Details ---");
+        System.out.println("Loan ID     : " + loanId);
+        System.out.println("Loan Amount : " + loanAmount);
+        System.out.println("Loan Type   : " + loanType);
+    }
+
+    public static void main(String[] args) {
+        Loan l = new Loan(12345, "SBIN0001234", 50000,
+                          101, "Ravi", "Hyderabad",
+                          201, 200000, "Home Loan");
+
+        l.showAccountDetails();
+        l.showCustomerDetails();
+        l.showLoanDetails();
+    }
+}
