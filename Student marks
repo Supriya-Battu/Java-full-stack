@@ -1,0 +1,76 @@
+package info;
+
+import java.util.Scanner;
+
+public class StudentPortal {
+    // fields
+    int rollno, marks[];
+    String name;
+    float percentage;
+    static int sum = 0;
+
+    // constructor
+    StudentPortal(int rollno, String name, int[] marks) {
+        this.rollno = rollno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    // method to display details
+    void getDetails() {
+        System.out.println("\n--- Student Details ---");
+        System.out.println("Roll Number: " + rollno);
+        System.out.println("Name       : " + name);
+        System.out.println("Marks in each subject:");
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println("Subject " + (i + 1) + ": " + marks[i]);
+        }
+    }
+
+    // method to calculate percentage and grade
+    void calculateAndPrintResult() {
+        for (int i = 0; i < marks.length; i++) {
+            sum += marks[i];
+        }
+
+        percentage = (float) sum / marks.length;
+
+        System.out.println("Total Marks : " + sum);
+        System.out.println("Percentage  : " + percentage + "%");
+
+        // Grade logic
+        if (percentage >= 80) {
+            System.out.println("A");
+        } else if (percentage >= 70) {
+            System.out.println("B");
+        } else if (percentage >= 60) {
+            System.out.println("C");
+        } else {
+            System.out.println("D");
+            System.out.println("Please improve your marks.");
+        }
+    }
+
+    // main method
+    public static void main(String[] args) {
+        Scanner v = new Scanner(System.in);
+
+        System.out.println("Welcome to RISE CLG!!!");
+        System.out.print("Please enter your Roll Number: ");
+        int roll = v.nextInt();
+
+        System.out.print("Please enter your Name: ");
+        String name = v.next();
+
+        int[] marks = new int[6]; // array to store 6 subject marks
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Enter Subject " + (i + 1) + " Marks: ");
+            marks[i] = v.nextInt();
+        }
+
+        // create object and call methods
+        StudentPortal student = new StudentPortal(roll, name, marks);
+        student.getDetails();
+        student.calculateAndPrintResult();
+    }
+}
