@@ -1,0 +1,66 @@
+package inheritance;
+
+	import java.util.Scanner;
+
+	public class Loan extends Customer {
+	    // Fields
+	    int lid;
+	    double loanamt;
+	    String loanType;
+
+	    // Constructor
+	    Loan(int lid, double loanamt, String loanType, int cid, String cname, String address, long mobilenumber) {
+	        super(cid, cname, address, mobilenumber); // Call to parent constructor
+	        this.lid = lid;
+	        this.loanamt = loanamt;
+	        this.loanType = loanType;
+	    }
+
+	    // Method to display loan details
+	    void getLoanDetails() {
+	        System.out.println("\n--- Loan Details ---");
+	        System.out.println("Loan ID         : " + lid);
+	        System.out.println("Loan Amount     : ₹" + loanamt);
+	        System.out.println("Loan Type       : " + loanType);
+	    }
+
+	    // Main method
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+
+	        // Input Customer details
+	        System.out.print("Enter Customer ID: ");
+	        int cid = sc.nextInt();
+
+	        sc.nextLine(); // Consume leftover newline
+
+	        System.out.print("Enter Customer Name: ");
+	        String cname = sc.nextLine();
+
+	        System.out.print("Enter Address: ");
+	        String address = sc.nextLine();
+
+	        System.out.print("Enter Mobile Number: ");
+	        long mobile = sc.nextLong();
+
+	        // Input Loan details
+	        System.out.print("Enter Loan ID: ");
+	        int lid = sc.nextInt();
+
+	        System.out.print("Enter Loan Amount: ");
+	        double loanamt = sc.nextDouble();
+
+	        sc.nextLine(); // Consume leftover newline
+
+	        System.out.print("Enter Loan Type: ");
+	        String loanType = sc.nextLine();
+
+	        // Create Loan object
+	        Loan loan = new Loan(lid, loanamt, loanType, cid, cname, address, mobile);
+
+	        // Display all details
+	        loan.getCustomerDetails();
+	        loan.getLoanDetails();
+	    }
+	}
+
