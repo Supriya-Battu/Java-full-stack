@@ -1,0 +1,41 @@
+package com.amazon;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+public class CrudOperations {
+
+	public static void main(String[] args) {
+		//SessionFactory object
+		SessionFactory factory = HiberateConf.getSessionFactory();
+		
+		//session object 
+		Session ses = factory.openSession();
+		
+		//transaction management
+		Transaction tx = ses.beginTransaction();
+		
+		/*to insert
+		Product p = new Product(4001,"Oppo",14000);
+		ses.save(p);*/
+		//Product p = new Product(4002,"Realme",16000); to update
+		//Product p = new Product(52,"Reno",12000);
+		Product p = new Product(52,"Reno",12000);
+		//ses.save(p);
+		
+		//update
+		//ses.update(p);
+		//commit transaction
+		
+		//delete
+		ses.delete(p);
+		
+		tx.commit();
+		
+		//close object
+		ses.close();
+		factory.close();
+	}
+
+}
